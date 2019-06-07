@@ -6,10 +6,10 @@ class Request_info():
         self.url_timeline = "https://api.twitter.com/1.1/statuses/home_timeline.json"
         #↓エンドポイントURLを追加
         self.url_friendships = "https://api.twitter.com/1.1/friendships/lookup.json"
-        self.ck = "tdRm2l0DSa4SHSwoyIh0PqHG3"
-        self.cs = "jO3tWKk0b41qgxxxTvGx2n8DByjEDyvrgTC0l8Lv0JD19PcfRV"
-        self.at = "4014297194-QUlxbyRdppb0LUR3aJ00G1mODnHCU2v7rauO8xC"
-        self.ats = "AjtqfOKjLNczhmfgs8W4hRsu4qror7AV8cWFW4AgVD7uz"
+        self.ck = config.CONSUMER_KEY
+        self.cs = config.CONSUMER_SECRET
+        self.at = config.ACCESS_TOKEN
+        self.ats = config.ACCESS_TOKEN_SECRET
 
 class Read_api(Request_info):
 
