@@ -1,0 +1,2 @@
+# twiTrend
+Twitterのタイムラインから1時間毎のトレンドを集計するApp
