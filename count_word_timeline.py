@@ -45,6 +45,7 @@ lines = parse.split('\n')
 items = (re.split('[\t,]', line) for line in lines)
 
 count = 100 #表示単語数
+count2 = 100
 
 # 名詞をリストに格納
 words = [item[0]
@@ -52,10 +53,23 @@ words = [item[0]
          if (item[0] not in ('EOS', '', 't', 'ー') and
              item[1] == '名詞' and item[2] == '一般')]
 
+#形容詞をリストに格納
+words2 = [item[0]
+         for item in items
+         if (item[0] not in ('EOS', '', 't', 'ー') and
+             item[1] == '形容詞')]
+
 # 頻度順に出力
+print("名詞")
 counter = Counter(words)
 for word, count in counter.most_common(count):
     print(f"{word}: {count}")
 
+'''
+print("形容詞")
+counter2 = Counter(words2)
+for word2, count2 in counter2.most_common(count2):
+    print(f"{word2}: {count2}")
+'''
 # 形態素解析
 #print(req.parse(result))
