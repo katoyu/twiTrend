@@ -6,3 +6,4 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
     Item.create(word: 'つくば', count: '23')
+    Item.create(word: '大学', count: '12')
