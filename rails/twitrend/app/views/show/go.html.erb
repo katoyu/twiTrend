@@ -2,13 +2,16 @@
 <br>
 <table border="1">
   <tr>
-    <th>単語</th> <th>件数</th>
+    <th>単語</th> <th>件数</th> <th>時刻</th>
   </tr>
+
+
 
 <% @items.each do |item| %>
   <tr>
-  <td><%= item.word %></td>
-  <td><%= item.count %></td> 
+    <td><%= item.word %></td>
+    <td><%= item.count %></td> 
+    <td><%= item.created_at %></td>
   </tr>
 <% end %>
 </table>

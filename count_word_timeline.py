@@ -50,7 +50,7 @@ count2 = 100
 # 名詞をリストに格納
 words = [item[0]
          for item in items
-         if (item[0] not in ('EOS', '', 't', 'ー') and
+         if (item[0] not in ('EOS', '', 't', 'ー', 'http', 'co', 'https', 'RT') and
              item[1] == '名詞' and item[2] == '一般')]
 
 #形容詞をリストに格納
