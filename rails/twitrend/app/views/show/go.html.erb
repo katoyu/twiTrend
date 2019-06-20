@@ -1,2 +1,16 @@
 <h1>ranking</h1>
-<%= @data.word %> : <%= @data.count %>
+<br>
+<table border="1">
+  <tr>
+    <th>単語</th> <th>件数</th>
+  </tr>
+
+<% @items.each do |item| %>
+  <tr>
+  <td><%= item.word %></td>
+  <td><%= item.count %></td> 
+  </tr>
+<% end %>
+</table>
+
+<!-- <% %> は表示されず、<%= %>は表示される-->

@@ -1,6 +1,5 @@
 class ShowController < ApplicationController
   def go
-    a = Item.all
-    @data = a.sample
+    @items = Item.select('word, count').order(count: :desc).group(:word, :count)
   end
 end
