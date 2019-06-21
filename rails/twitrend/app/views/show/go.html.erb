@@ -1,17 +1,17 @@
 <h1>ranking</h1>
-<br>
+今の@ITF_katoyuのタイムラインのトレンドは一言で言うと 「<%= @items.sample.word %><%= @items.sample.word %>」「<%= @items.sample.word %><%= @items.sample.word %>」「<%= @items[4].word %><%= @items[5].word %>」 です！
+<br><br>
+取得時刻:<%= @items[0].created_at %><br>
+
 <table border="1">
   <tr>
-    <th>単語</th> <th>件数</th> <th>時刻</th>
+    <th>単語</th> <th>件数</th> <!-- <th>時刻</th> --> 
   </tr>
-
-
-
-<% @items.each do |item| %>
+<% @items.first(30).each do |item| %>
   <tr>
     <td><%= item.word %></td>
     <td><%= item.count %></td> 
-    <td><%= item.created_at %></td>
+    <!-- <td><%= item.created_at %></td> -->
   </tr>
 <% end %>
 </table>

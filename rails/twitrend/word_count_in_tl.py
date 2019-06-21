@@ -8,6 +8,10 @@ from collections import Counter
 from urllib import request
 import psycopg2
 
+from datetime import datetime
+
+date = datetime.now().strftime('%Y-%m-%d %H:%M:%S UTC')
+
 #DBとの接続、developmentなので下二つは未設定
 path = "localhost"
 port = "5432"
@@ -51,13 +55,19 @@ parse = mecab.parse(data)
 lines = parse.split('\n')
 items = (re.split('[\t,]', line) for line in lines)
 
-count = 10 #表示単語数
+count = 30 #表示単語数
 
 # 名詞をリストに格納
 words = [item[0]
          for item in items
-         if (item[0] not in ('EOS', '', 't', 'ー', 'http', 'co', 'https', 'RT') and
+         if (item[0] not in ('EOS', '', 't', 'ー', 'http', 'https', 'co', 'RT','the', 'a', 'T') and
              item[1] == '名詞' and item[2] == '一般')]
+
+conText = "host={} port={} dbname={}"
+conText = conText.format(path,port,dbname)
+connection = psycopg2.connect(conText)
+cur = connection.cursor()
+
 
 # 頻度順に出力
 print("名詞")
@@ -65,15 +75,14 @@ counter = Counter(words)
 for word, count in counter.most_common(count):
     print(f"{word}: {count}")
 
-conText = "host={} port={} dbname={}"
-conText = conText.format(path,port,dbname)
-connection = psycopg2.connect(conText)
-cur = connection.cursor()
+    created_at = date
+    updated_at = date
 
-for word, count in enumerate(word, count):
-    sql = "insert into items(word,count,created_at,updated_at) values(word ,count, '2019-06-21 00:00:00 UTC', '2019-06-21 00:00:00 UTC');"
+    sql = 'insert into items(word, count, created_at, updated_at) values(%s, %s, %s, %s)'
+    cur.execute(sql, (word, int(count), created_at, updated_at))
+    connection.commit()
 
-cur.execute(sql)
-connection.commit()
+
+
 # 形態素解析
 #print(req.parse(result))
