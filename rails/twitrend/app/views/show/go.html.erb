@@ -1,5 +1,13 @@
-<h1>ranking</h1>
-今の@ITF_katoyuのタイムラインのトレンドは一言で言うと 「<%= @items.sample.word %><%= @items.sample.word %>」「<%= @items.sample.word %><%= @items.sample.word %>」「<%= @items[4].word %><%= @items[5].word %>」 です！
+<h1>TwiTrend</h1>
+<h4>Twitrendは、筑波大のツイッターの利用具合からトレンドを抽出するサービスです。</h4>
+
+<% keyword1 = @items.sample.word %><% keyword2 = @items.sample.word %>
+今の<a href="https://twitter.com/ITF_katoyu">@ITF_katoyu</a>のタイムラインのトレンドは一言で言うと 「<%= keyword1 %><%= keyword2 %>」です！
+<br>
+<a href="https://twitter.com/share?text=今のトレンドは「<%= keyword1 %><%= keyword2 %>」?%0a詳細はこちら&url=http://katoyu.com/twitrend&hashtags=twitrend" 
+onClick="window.open(encodeURI(decodeURI(this.href)), 'tweetwindow', 'width=650, height=470, personalbar=0, toolbar=0, scrollbars=1, sizable=1'); return false;" rel="nofollow" class="twitter-link">
+  twitterでshare!
+</a>
 <br><br>
 取得時刻:<%= @items[0].created_at %><br>
 
