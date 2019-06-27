@@ -1,3 +1,6 @@
+#!/usr/bin/python
+# -*- coding: UTF-8 -*-
+
 import sys
 import json
 import config
@@ -18,6 +21,7 @@ ngword = data1.split('\n')
 
 
 #DBとの接続、developmentなので下二つは未設定
+
 path = "localhost"
 port = "5432"
 dbname = "twitrend_development"
@@ -74,7 +78,7 @@ cur = connection.cursor()
 print("名詞")
 counter = Counter(words)
 for word, count in counter.most_common(count):
-    print(f"{word}: {count}")
+    #print(f"{word}: {count}")
 
     created_at = date
     updated_at = date
